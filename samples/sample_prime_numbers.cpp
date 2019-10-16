@@ -17,7 +17,7 @@
 int main()
 {
 	TBitField Bf(50);
-	cout << Bf << endl;
+	cout << Bf;
   /*int n, m, k, count;
 
   setlocale(LC_ALL, "Russian");
