@@ -9,6 +9,7 @@
 
 TBitField::TBitField(int len)
 {
+	if (len <= 0) throw len;
 	BitLen = len;
 	MemLen = (BitLen / 32) + 1;
 	pMem = new TELEM[MemLen];
@@ -49,6 +50,7 @@ int TBitField::GetLength(void) const // получить длину (к-во б�
 
 void TBitField::SetBit(const int n) // установить бит
 {
+	if ((n <= 0)||(n > BitLen)) throw n;
 	int i = GetMemIndex(n);
 	TELEM mask = GetMemMask(n);
 	pMem[i] = pMem[i] | mask;
@@ -56,6 +58,7 @@ void TBitField::SetBit(const int n) // установить бит
 
 void TBitField::ClrBit(const int n) // очистить бит
 {
+	if ((n <= 0) || (n > BitLen)) throw n;
 	int i = GetMemIndex(n);
 	TELEM mask = GetMemMask(n);
 	mask = ~mask;
@@ -64,6 +67,7 @@ void TBitField::ClrBit(const int n) // очистить бит
 
 int TBitField::GetBit(const int n) const // получить значение бита
 {
+	if ((n < 0) || (n > BitLen)) throw n;
 	int i = GetMemIndex(n);
 	TELEM mask = GetMemMask(n);
 	return pMem[i] & mask;
@@ -96,10 +100,15 @@ int TBitField::operator==(const TBitField &bf) const // сравнение
 	return true;
 }
 
-/*int TBitField::operator!=(const TBitField &bf) const // сравнение
+int TBitField::operator!=(const TBitField &bf) const // сравнение
 {
-	return 0;
-}*/
+	if (BitLen != bf.BitLen)
+		return false;
+	if (*this == bf)
+		return false;
+	return true;
+
+}
 
 TBitField TBitField::operator|(const TBitField &bf) // операция "или"
 {

@@ -15,9 +15,9 @@
 #include "tbitfield.h"
 
 int main()
-{
+{/*
 	TBitField Bf(50);
-	cout << Bf;
+	cout << Bf;*/
   int n, m, k, count;
 
   setlocale(LC_ALL, "Russian");
