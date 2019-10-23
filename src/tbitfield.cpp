@@ -32,12 +32,12 @@ TBitField::~TBitField()
 
 int TBitField::GetMemIndex(const int n) const // индекс Мем для бита n
 {
-	return n >> 4;
+	return n >> 8;
 }
 
 TELEM TBitField::GetMemMask(const int n) const // битовая маска для бита n
 {
-	return 1 << (n & 16);
+	return 1 << (n & 31);
 }
 
 // доступ к битам битового поля
