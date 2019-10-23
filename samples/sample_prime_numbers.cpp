@@ -18,7 +18,7 @@ int main()
 {
 	TBitField Bf(50);
 	cout << Bf;
-  /*int n, m, k, count;
+  int n, m, k, count;
 
   setlocale(LC_ALL, "Russian");
   cout << "Тестирование программ поддержки битового поля" << endl;
@@ -50,7 +50,7 @@ int main()
         cout << endl;
     }
   cout << endl;
-  cout << "В первых " << n << " числах " << count << " простых" << endl;*/
+  cout << "В первых " << n << " числах " << count << " простых" << endl;
 }
 #else
 
