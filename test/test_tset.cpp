@@ -63,7 +63,7 @@ TEST(TSet, compare_two_equal_sets)
 {
   const int size = 4;
   TSet set1(size), set2(size);
-  // set1 = set2 = {1, 3}
+  //set1 = set2 = {1, 3}
   set1.InsElem(1);
   set1.InsElem(3);
   set2.InsElem(1);

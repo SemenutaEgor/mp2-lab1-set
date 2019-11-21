@@ -15,10 +15,31 @@
 #include "tbitfield.h"
 
 int main()
-{/*
-	TBitField Bf(50);
-	cout << Bf;*/
-  int n, m, k, count;
+{
+	//Проверка invert_plus_and_operator_on_different_size_bitfield
+	int firstSze = 4, secondSize = 8;
+	TBitField firstBf(firstSze), negFirstBf(firstSze), secondBf(secondSize), testBf(secondSize);
+	// firstBf = 0001
+	firstBf.SetBit(0);
+	cout << "\n" << "firstBf " << firstBf;
+	negFirstBf = ~firstBf;
+	cout << "\n" << "negFirstBf " << negFirstBf;
+	// negFirstBf = 1110
+
+	// secondBf = 00011000
+	secondBf.SetBit(3);
+	cout << "\n" << "secondBf1 " << secondBf;
+	secondBf.SetBit(4);
+	cout << "\n" << "secondBf2 " << secondBf;
+
+	// testBf = 00001000
+	testBf.SetBit(3);
+	cout << "\n" << "secondBf " <<secondBf;
+	cout << "\n" << "testBf " <<testBf;
+	TBitField resBf(secondSize);
+	resBf = secondBf & negFirstBf;
+	cout << "\n" << "resBf " << resBf;
+ /* int n, m, k, count;
 
   setlocale(LC_ALL, "Russian");
   cout << "Тестирование программ поддержки битового поля" << endl;
@@ -50,7 +71,7 @@ int main()
         cout << endl;
     }
   cout << endl;
-  cout << "В первых " << n << " числах " << count << " простых" << endl;
+  cout << "В первых " << n << " числах " << count << " простых" << endl;*/
 }
 #else
 
