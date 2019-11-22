@@ -63,7 +63,10 @@ int TSet::operator==(const TSet &s) const // сравнение
 
 int TSet::operator!=(const TSet &s) const // сравнение
 {
-	return BitField != s.BitField;
+	if (MaxPower == s.MaxPower)
+		return BitField != s.BitField;
+	else
+		return 1;
 }
 
 TSet TSet::operator+(const TSet &s) // объединение
